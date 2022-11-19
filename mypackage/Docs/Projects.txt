@@ -1,0 +1,12 @@
+This doc will contain the functions related to projects module,
+
+Functions:
+
+    1 - list(<url>,<AccessToken>,<id(optional)>)
+
+        Response: List of projects with details.
+        id is optional, if you pass it you would get the details of that perticular project.
+
+    2 - create(<url>,<AccessToken>,<data>)
+
+        Response: Create project inside IO. and give back the details of that created project. 

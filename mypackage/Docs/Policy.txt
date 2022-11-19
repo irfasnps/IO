@@ -1,0 +1,12 @@
+This doc will contain the functions related to policy module,
+
+Functions:
+
+    1 - list(<url>,<AccessToken>,<name(optional)>)
+
+        Response: List of policy with details.
+        name is optional, if you pass it you would get the details of that perticular policy.
+
+    2 - create(<url>,<AccessToken>,<data>)
+
+        Response: Create project inside IO. and give back the details of that created project. 
