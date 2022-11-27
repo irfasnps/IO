@@ -84,14 +84,26 @@ def attach(url,policyId,token, Data=None):
 #attach("https://io11.codedx.synopsys.com/api/ioiq/api/policy/prescan-policies","ced5b523-95ce-49be-a43c-ff074e3771e5","I565ZPTRQNF53FORSGOT3BYCMUDFBLBCM432I56A5453K74NU2IQ====",["50bdecd8-9ce8-4b58-85ff-e30de5f91fed"])
 
 def edit(url,policyId,token, Data=None):
-    url = url+"/api/policy/risk-profile-policies/"+policyId
+    url = url+"/api/policy/prescan-policies/"+policyId
     payload = json.dumps(Data)
     headers = {
         'Accept': 'application/vnd.synopsys.io.prescan-policy-2+json',
         'Content-Type': 'application/vnd.synopsys.io.prescan-policy-2+json',
         'Authorization': 'Bearer '+token
     }
+    # data={ "description": "Prescan Policy Edit Testing", "name": "Pre-Scan 3 Patch Test", "policy": { "schedulingPolicy": { "imageScan": { "enabled": True, "threshold": 22 } }, "scoreRanges": { "high": { "dast": True, "dastplusm": True, "imageScan": True, "sast": True, "sastplusm": True, "sca": True }, "low": { "dast": True, "dastplusm": True, "imageScan": True, "sast": True, "sastplusm": True, "sca": True }, "medium": { "dast": True, "dastplusm": True, "imageScan": True, "sast": True, "sastplusm": True, "sca": True } } } }
     response = requests.patch(url, data=payload, headers=headers)
     return print(response.status_code)
 
     #edit("https://io11.codedx.synopsys.com/api/ioiq","ced5b523-95ce-49be-a43c-ff074e3771e5","I565ZPTRQNF53FORSGOT3BYCMUDFBLBCM432I56A5453K74NU2IQ====",data)
+
+def delete(url,policyId,token):
+    url = url+"/api/policy/prescan-policies/"+policyId
+    headers = {
+        'Authorization': 'Bearer '+token
+    }
+    print(url,headers)
+    payload = {}
+    response = requests.delete(url, data=payload, headers=headers)
+    return print(response.text)
+#delete("https://io11.codedx.synopsys.com/api/ioiq","f3983595-6137-4532-8045-079ef0e812d9","I565ZPTRQNF53FORSGOT3BYCMUDFBLBCM432I56A5453K74NU2IQ====")
